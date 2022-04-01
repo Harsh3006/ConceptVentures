@@ -1,0 +1,169 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>Work with Concept Research Media</title>
+<link rel="stylesheet" href="{% static 'CSS/slick.css' %}">
+<style>
+    header {
+        background-image: var(--overlay), url(/static/Images/work-with-us.jpg);
+    }
+    
+    .work {
+        background: var(--blue);
+        color: white;
+    }
+    
+    .image {
+        background-image: url(/static/Images/case-study.jpg);
+    }
+    
+    .logins {
+        position: relative;
+        height: 200px;
+        background: #e2e2e2;
+        z-index: -1;
+    }
+    
+    .login-type {
+        width: 100%;
+        margin: -100px auto 0;
+        padding: 0 30px;
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .login-type .login-type-conatiner {
+        padding: 20px;
+        gap: 20px;
+        min-height: 300px;
+        background: white;
+        color: #1a1a1a;
+        box-shadow: 0px 5px 21px -5px rgb(0 0 0);
+    }
+    
+    .login-type .login-type-conatiner p {
+        margin: 0;
+    }
+    
+    .icon {
+        width: 100px;
+        height: 100px;
+        background: #1a1a1a;
+        padding: 10px;
+        border-radius: 50%;
+        transition: 0.3s;
+    }
+    
+    .login-type-conatiner:hover .icon {
+        transform: translateY(-10px);
+    }
+</style>
+{% endblock head %} {% block header_content %}
+<div class="content">
+    <h1>Work with <br>Concept Research Media</h1>
+    <p>We want to attract, retain and develop a diverse mix of talented individuals, and create an inclusive culture where everyone can succeed.</p>
+    <a href="{% url 'crm-about' %}" class="btn">ABOUT US <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+{% endblock header_content %} {% block content %}
+<section class="work no-margin">
+    <div class="flex align-stretch flex-reverse">
+        <div class="col">
+            <div class="image"></div>
+        </div>
+        <div class="col" style="padding: 50px 0;">
+            <div class="text-box">
+                <h1>Why Join Concept Research Media?</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure consequuntur ipsa ea aspernatur atque vitae, mollitia cumque nesciunt nulla quae laboriosam hic vero ullam quia esse quis perspiciatis quod iusto. Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="logins"></div>
+<section class="no-margin">
+    <div class="login-type">
+        <div class="login-type-conatiner text-center flex flex-column justify-between">
+            <div class="icon">
+                <img src="{% static 'Images/transcription1.png' %}">
+            </div>
+            <p><b>Content Writing & Transcription</b></p>
+            <p>Join us and work as a content writer or as a transcriber</p>
+            <a href="{% url 'signup' 'transcriber' %}" class="work-with-us">Apply Now</a>
+        </div>
+        <div class="login-type-conatiner text-center flex flex-column justify-between">
+            <div class="icon">
+                <img src="{% static 'Images/market-research1.png' %}">
+            </div>
+            <p><b>Market Research Freelancer</b></p>
+            <p>Become a market research freelancer at CRM</p>
+            <a href="{% url 'signup' 'freelancer' %}" class="work-with-us">Apply Now</a>
+        </div>
+        <div class="login-type-conatiner text-center flex flex-column justify-between">
+            <div class="icon">
+                <img src="{% static 'Images/vendor.png' %}">
+            </div>
+            <p><b>Vendor</b></p>
+            <p>Become our Vendor from your location</p>
+            <a href="{% url 'signup' 'vendor' %}" class="work-with-us">Apply Now</a>
+        </div>
+        <div class="login-type-conatiner text-center flex flex-column justify-between">
+            <div class="icon">
+                <img src="{% static 'Images/panel-service1.png' %}">
+            </div>
+            <p><b>Panelist</b></p>
+            <p>Become a Panelist at CRM</p>
+            <a href="{% url 'signup' 'panelist' %}" class="work-with-us">Apply Now</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="text-box text-center">
+            <h1>Our Works</h1>
+            <hr>
+        </div>
+        <div id="case-study-slider" style="max-width: 1000px; margin: 0 auto;">
+            {% for case_study in recent_case_study %}
+            <div class="flex justify-between" style="margin-top: 50px;">
+                <div class="image-container" style="background-image: url({{case_study.img.url}});"></div>
+                <div class="work-details">
+                    <p><b>{{case_study.service}}</b></p>
+                    <p class="small">{{case_study.title}}</p>
+                    <p>{{case_study.summary}}</p>
+                    <div class="profile-container flex">
+                        <div class="profile-image">
+                            <img loading="lazy" loading="lazy" src="{{case_study.client_img.url}}">
+                        </div>
+                        <p>{{case_study.client}}</p>
+                    </div>
+                    <a href="{{case_study.get_absolute_url}}" class="btn">VIEW CASE STUDY <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="text-center">
+    <div class="text-box">
+        <h1>Our Recent Blogs</h1>
+        <hr>
+    </div>
+    <div class="blog-row">
+        {% for post in recent_blog_post %}
+        <div class="blog-column">
+            <img loading="lazy" loading="lazy" src="{{post.img.url}}" alt="blog-image">
+            <div class="overlay">
+                <div class="details">
+                    <p class="title">{{post.title}}</p>
+                    <span class="category">{{post.category}}</span>
+                    <a href="{% url 'blog-detail' post.slug %}" class="read-now">Read Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script src="{% static 'JS/slick.min.js' %}"></script>
+{% endblock content %}

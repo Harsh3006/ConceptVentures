@@ -1,0 +1,15 @@
+{% extends 'transcriber/transcriber-profile-base.html' %} {% load static %} {% block content %}
+<div class="profile-box">
+    <p class="small">Step 06: Phone Number</p>
+    <form action="skills" method="post">
+        {% csrf_token %}
+        <div class="flex">
+            <div class="input-group required">
+                <label for="phone-number">Phone Number</label>
+                <input type="text" name="phone-number" id="phone-number" placeholder="Enter Phone Number" required>
+            </div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+{% endblock content %}

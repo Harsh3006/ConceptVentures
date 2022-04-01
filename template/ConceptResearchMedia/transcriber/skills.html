@@ -1,0 +1,48 @@
+{% extends 'transcriber/transcriber-profile-base.html' %} {% load static %} {% block content %}
+<div class="profile-box">
+    <p class="small">STEP 05: Skills</p>
+    <p>Skilled In</p>
+    <form action="skills" method="post">
+        {% csrf_token %}
+        <div class="flex flex-column justify-between">
+            <div class="input-group flex">
+                <div class="checkbox">
+                    <label for="transcription">Transcription</label>
+                    <input type="checkbox" name="skill" id="transcription">
+                </div>
+                <div class="checkbox">
+                    <label for="translation">Translation</label>
+                    <input type="checkbox" name="skill" id="translation">
+                </div>
+            </div>
+            <div class="input-group flex">
+                <div class="checkbox">
+                    <label for="video">Video Recording</label>
+                    <input type="checkbox" name="skill" id="video">
+                </div>
+                <div class="checkbox">
+                    <label for="audio">Audio Recording</label>
+                    <input type="checkbox" name="skill" id="audio">
+                </div>
+            </div>
+            <div class="input-group flex">
+                <div class="checkbox">
+                    <label for="proofreading">Proofreading</label>
+                    <input type="checkbox" name="skill" id="proofreading">
+                </div>
+                <div class="checkbox">
+                    <label for="annotation">Annotation</label>
+                    <input type="checkbox" name="skill" id="annotation">
+                </div>
+            </div>
+            <div class="input-group flex">
+                <div class="checkbox">
+                    <label for="subtitle">Subtitle</label>
+                    <input type="checkbox" name="skill" id="subtitle">
+                </div>
+            </div>
+            <input type="submit" value="Next: Phone Number">
+        </div>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,109 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setup</title>
+    <link rel="shortcut icon" href="{% static 'Images/favicon.png' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/ConceptResearchMedia/account.css' %}">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    {% for message in messages %}
+    <p id="message" class="{{message.tags}}">{{message}}</p>
+    {% endfor %}
+
+    <div id="side-nav">
+        <div class="nav flex flex-column justify-between">
+            <div>
+                <div>
+                    <div class="menu" id="side-menu-toggler" onclick="openSideNav()">
+                        <span class="line1"></span>
+                        <span class="line2"></span>
+                        <span class="line3"></span>
+                    </div>
+                    <a href="{% url 'basic-information' user_type %}" class="nav_link">
+                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                        <span class="title">Basic Information</span>
+                    </a>
+                    {% if user_type == 'transcriber' %}
+                    <a href="{% url 'languages' %}" class="nav_link">
+                        <span class="icon"><ion-icon name="language-outline"></ion-icon></span>
+                        <span class="title">Languages</span>
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'location' user_type %}" class="nav_link">
+                        <span class="icon"><ion-icon name="location-outline"></ion-icon></span>
+                        <span class="title">Location</span>
+                    </a>
+                    {% if user_type == 'vendor' %}
+                    <a href="{% url 'agent-detail' %}" class="nav_link">
+                        <span class="icon"><ion-icon name="briefcase-outline"></ion-icon></span>
+                        <span class="title">Agent Details</span>
+                    </a>
+                    {% endif %} {% if user_type != 'vendor' and user_type != 'panelist' %}
+                    <a href="{% url 'qualification' user_type %}" class="nav_link">
+                        <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                        <span class="title">Qualification & Skills</span>
+                    </a>
+                    {% endif %} {% if user_type == 'panelist' %}
+                    <a href="{% url 'qualification' user_type %}" class="nav_link">
+                        <span class="icon"><ion-icon name="school-outline"></ion-icon></span>
+                        <span class="title">Experience</span>
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'documents' user_type %}" class="nav_link">
+                        <span class="icon"><ion-icon name="document-text-outline"></ion-icon></ion-icon></span>
+                        <span class="title">Documents</span>
+                    </a>
+                    <a href="{% url 'payment-detail' user_type %}" class="nav_link">
+                        <span class="icon"><ion-icon name="cash-outline"></ion-icon></ion-icon></ion-icon></span>
+                        <span class="title">Payment Details</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <a href="{% url 'logout' %}" class="nav_link">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Log Out</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="contents">
+        <div class="banner flex justify-between">
+            <div class="menu" id="banner-menu-toggler" onclick="openSideNav()">
+                <span class="line1"></span>
+                <span class="line2"></span>
+                <span class="line3"></span>
+            </div>
+            <div>
+                <a href="{% url 'crm-index' %}"><img src="{% static 'Images/crm-logo.svg' %}" id="logo" class="logo" height="80px"></a>
+            </div>
+            <div class="flex">
+                <p class="big-screen-only" style="margin-right: 20px;"><b>{{user.first_name}}</b></p>
+                <div class="user-profile-img flex justify-center">
+                    {% if profile_picture %}
+                    <img src="{{profile_picture}}" alt=""> {% else %}
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            {% block content %} {% endblock content %}
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'JS/common.js' %}"></script>
+</body>
+
+</html>

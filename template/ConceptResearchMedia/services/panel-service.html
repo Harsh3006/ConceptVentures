@@ -1,0 +1,59 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>Panel Service at CRM</title>
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/service.css' %}">
+<style>
+    header {
+        background-image: var(--overlay), url(/static/Images/panel-service.jpg);
+    }
+</style> {% endblock head %} {% block header_content %}
+<div class="content">
+    <h1>Panel Service at CRM</h1>
+    <p>CRM is a trusted global panel and market research services , CRM ensures balanced representative proprietary quality-controlled populations across each panel community.</p>
+    <a href="#" class="btn">APPLY NOW <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+{% endblock header_content %} {% block content %}
+<div class="sub-services">
+    <section class="service-content a no-margin">
+        <div class="service-data">
+            <h1>Panel Service</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo mollitia voluptatem saepe vel enim, aut eveniet aliquam praesentium temporibus sequi ullam consequatur, reprehenderit earum officiis harum provident vitae nemo necessitatibus.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo mollitia voluptatem saepe vel enim, aut eveniet aliquam praesentium temporibus sequi ullam consequatur, reprehenderit earum officiis harum provident vitae nemo necessitatibus.</p>
+        </div>
+    </section>
+</div>
+
+<div class="articles">
+    <div class="container">
+        <div class="article-heading">
+            <h5>Articles</h5>
+            <h6>Related Blogs</h6>
+        </div>
+        <div class="cards">
+            <div class="card-container">
+                <div class="img-holder">
+                </div>
+                <div class="card-text">
+                    <h4>Beauty of nature</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam placeat aliquam aut ab similique eveniet sit architecto asperiores esse id!</p>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="img-holder">
+                </div>
+                <div class="card-text">
+                    <h4>Beauty of nature</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam placeat aliquam aut ab similique eveniet sit architecto asperiores esse id!</p>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="img-holder">
+                </div>
+                <div class="card-text">
+                    <h4>Beauty of nature</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam placeat aliquam aut ab similique eveniet sit architecto asperiores esse id!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

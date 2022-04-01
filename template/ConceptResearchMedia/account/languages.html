@@ -1,0 +1,50 @@
+{% extends 'ConceptResearchMedia/account/base.html' %} {% load static %} {% block content %}
+<div class="profile-box">
+    <p class="small">Languages</p>
+    <p>Enter language you can transcribe</p>
+    <form action=" " method="post">
+        {% csrf_token %} {{ formset.management_form }}
+        <div id="input-form">
+            {% for form in formset %}
+            <div class="flex justify-between input-box">
+                {{form.as_p}}
+                <input type="submit" class="del-btn" name="del_btn{{ form.instance.id }}" value="Delete">
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="empty-field" class="hidden-field">{{formset.empty_form.as_p}}</div>
+        <button id="add-btn" type="button">Add Language</button>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<script>
+    $(document).on("keydown", "form", function(event) {
+        return event.key != "Enter";
+    });
+
+    const add_btn = document.getElementById('add-btn');
+    const totalNewForms = document.getElementById('id_form-TOTAL_FORMS')
+    add_btn.addEventListener('click', add_new_input_field);
+
+    function add_new_input_field(event) {
+        if (event) {
+            event.preventDefault()
+        }
+
+        const currentLanguageForms = document.getElementsByClassName('input-box')
+        let currentFormCount = currentLanguageForms.length
+        const form_copy_target = document.getElementById('input-form')
+        const input_field = document.getElementById('empty-field').cloneNode(true)
+        input_field.setAttribute('class', 'input-box')
+        input_field.setAttribute('id', `form-${currentFormCount}`)
+        const regex = new RegExp('__prefix__', 'g')
+        input_field.innerHTML = input_field.innerHTML.replace(regex, currentFormCount)
+        input_child = input_field.childNodes[0].childNodes
+        input_child[2].setAttribute('required', 'true')
+        totalNewForms.setAttribute('value', currentFormCount + 1)
+            // add new language input field
+        form_copy_target.append(input_field)
+    }
+</script>
+{% endblock content %}

@@ -1,0 +1,98 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>{{case_study.title}}</title>
+<meta property="og:title" content="{{case_study.title}}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="http://127.0.0.1:8000{{case_study.img.url}}">
+<meta property="og:description" content="{{case_study.summary}}">
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/article.css' %}">
+<style>
+    header {
+        background-image: var(--overlay),
+        url({{case_study.img.url}});
+        height: calc(80vh - 100px);
+        margin-top: 100px;
+    }
+    
+    header .sidebar {
+        display: none !important;
+    }
+    
+    header .content-box {
+        height: calc(80vh - 130px);
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: var(--primary-color);
+        box-shadow: 0px 5px 21px -14px rgb(0 0 0 / 100%);
+    }
+    
+    nav ul li a {
+        color: var(--secondary-color);
+    }
+    
+    nav ul li a::after {
+        background-color: var(--secondary-color);
+    }
+    
+    nav .mode {
+        border: 2px solid var(--secondary-color);
+    }
+    
+    nav .mode ion-icon {
+        color: var(--secondary-color);
+    }
+    
+    nav .menu span {
+        background: var(--secondary-color);
+    }
+</style> {% endblock head %} {% block header_content %}
+<div class="content">
+    <p class="category">{{case_study.service}}</a>
+        <h1>{{case_study.title}}</h1>
+        <p>{{case_study.created_on | date:"d M Y"}}</p>
+        <p>{{case_study.summary}}</p>
+</div>
+{% endblock header_content %} {% block content %}
+<div class="article-post-container">
+    <div class="article-content">
+        {{case_study.body|safe}}
+    </div>
+    <div id="social-share" class="flex">
+        <p>Share</p>
+        <a href="#" id="whatsapp-btn">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+        <a href="#" id="facebook-btn">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#" id="linkedin-btn">
+            <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <a href="#" id="twitter-btn">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+    </div>
+</div>
+{% if related_case_study %}
+<div class="articles">
+    <div class="article-heading">
+        <h5>Articles</h5>
+        <h6>Related Case Study</h6>
+    </div>
+    <div class="cards pad">
+        {% for cases in related_case_study %}
+        <div class="card-container">
+            <div class="img-holder" style="background-image: url({{cases.img.url}});"></div>
+            <div class="card-text">
+                <p class="small">{{cases.title}}</p>
+                <p>{{cases.summary}}</p>
+            </div>
+            <a href="{{cases.get_absolute_url %}" class="btn">Read More</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %} {% endblock content %}

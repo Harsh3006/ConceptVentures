@@ -1,0 +1,71 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>Read the blogs by Concept Research Media</title>
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/article.css' %}">
+<style>
+    header {
+        background-image: var(--overlay), url(/static/Images/blog.jpg);
+    }
+</style>
+{% endblock head %}
+
+<!-- Header -->
+{% block header_content %}
+<div class="content">
+    <h1>Blogs by</h1>
+    <h1>Concept Reseach Media</h1>
+    <p>Read our latest articles and reports, with expert perspectives, proprietary data, and thought-provoking insights.</p>
+    <a href="#" class="btn">GET IN TOUCH <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+</div>
+{% endblock header_content %} {% block content %}
+<!-- Blog Posts -->
+<section>
+    <div class="filter-box text-center">
+        <p>Filter Blogs By Categories</p>
+        <ul class="flex justify-center" id="category_types">
+            <li><button onclick="filterCategory('all')" class="category_btn active">All</button></li>
+            {% for category in categories %}
+            <li><button onclick="filterCategory('{{category}}')" class="category_btn">{{category}}</button></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="article">
+        <div class="articles-container">
+            {% for post in object_list %}
+            <div class="all blog {{post.category}} article-entry">
+                <div class="article-image">
+                    <a href="{{post.get_absolute_url}}"><img loading="lazy" src="{{post.img.url}}"></a>
+                </div>
+                <div class="desc">
+                    <p class="meta">
+                        <span class="cat">
+                                <a href="{% url 'category' post.category %}">{{post.category}}</a> 
+                            </span>
+                        <span class="date">
+                            {{post.created_on | date:"d M Y"}}
+                            </span>
+                    </p>
+                    <a href="{{post.get_absolute_url}}">
+                        <p class="small">{{post.title}}</p>
+                    </a>
+                    <p>{{post.snippet}} </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="no-match" class="text-center">
+        <p class="small">No match found</p>
+    </div>
+    <div class="pagination flex flex-column justify-center">
+        <div>
+            {% if page_obj.has_previous %}
+            <a href="?page={{page_obj.prev_page_number}}" class="previous"><span>&#8592;</span> Previous Page</a> {% endif %} {% if page_obj.has_next %}
+            <a href="?page={{page_obj.next_page_number}}" class="next">Next Page <span>&#8594;</span></a> {% endif %}
+        </div>
+        <div class="pagination-toggler big-screen-only">
+            <p>Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</p>
+        </div>
+    </div>
+</section>
+{% endblock content %}

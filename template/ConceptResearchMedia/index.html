@@ -1,0 +1,264 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>Welcome to Concept Research Media</title>
+<link rel="stylesheet" href="{% static 'CSS/slick.css' %}">
+<style>
+    header {
+        background-image: var(--overlay), url(/static/Images/crm-index-background.jpg);
+    }
+</style>
+{% endblock head %}
+
+<!-- Header -->
+{% block header_content %}
+<div class="content">
+    <h1>Get the best </br> <span id="typing-input"></span></h1>
+    <p>Concept Research Media specializes in providing state-of-art B2B & B2C market research, consulting and problem solving services. It offers market research which provides primary as well as secondary data collection services to clients worldwide. The
+        team has a cumulative experience of 100+ years and in-depth knowledge about market research tools and techniques.</p>
+    <a href="{% url 'crm-about' %}" class="btn">ABOUT US <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+{% endblock header_content %} {% block content %}
+<!-- Welcome Message-->
+<section id="welcome" class="no-margin">
+    <div class="flex flex-reverse align-stretch">
+        <div class="col">
+            <div class="image" style="background-image: url(/static/Images/welcome.jpg);"></div>
+        </div>
+        <div class="col" style="padding: 60px 0;">
+            <div class="text-box">
+                <h1>Grow & Scale Faster With Insights</h1>
+                <p>At CRM, we help brands to connect with their audience across markets through key insights. We solve your business problems by putting together the best suited strategies with data, technology and human intelligence.</p>
+                <a href="{% url 'crm-about' %}" class="btn">ABOUT US <ion-icon name="arrow-forward-outline"></ion-icon></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Counting Numbers-->
+<section class="image numbers no-margin">
+    <div class="flex">
+        <div class="numbers-col">
+            <p class="counter">10</p><span>K+</span>
+            <p>ACHIEVEMENTS</p>
+        </div>
+        <div class="numbers-col">
+            <p class="counter">21</p><span>K+</span>
+            <p>PROJECTS COMPLETED</p>
+        </div>
+        <div class="numbers-col">
+            <p class="counter">27</p>
+            <p>YEARS OF EXPERIENCE</p>
+        </div>
+        <div class="numbers-col">
+            <p class="counter">30</p> <span>K+</span>
+            <p>HAPPY CUSTOMERS</p>
+        </div>
+    </div>
+</section>
+
+<!-- Our Services -->
+<section class="no-margin">
+    <div class="flex align-stretch">
+        <div class="col">
+            <div class="image" style="background-image: url(/static/Images/service.jpg);"></div>
+        </div>
+        <div class="col" style="padding: 60px 0;">
+            <div>
+                <div class="text-box">
+                    <h1>Our Services</h1>
+                    <p>At CRM, we help brands to connect with their audience across markets through key insights. We solve your business problems by putting together the best suited strategies with data, technology and human intelligence.</p>
+                    <div class="service-list">
+                        <ol class="flex justify-between">
+                            <div>
+                                <li class="flex">
+                                    <span class="bullet"><img loading="lazy" loading="lazy" src="{% static 'Images/market-research1.png' %}" alt="market-research"></span>
+                                    <p>Market Research</p>
+                                </li>
+                                <!-- <li class="flex">
+                                    <span class="bullet"><img loading="lazy" loading="lazy" src="{% static 'Images/industry-report.png' %}" alt="industry-report"></span>
+                                    <p>Industry Reports</p>
+                                </li> -->
+                                <li class="flex">
+                                    <span class="bullet"><img loading="lazy" loading="lazy" src="{% static 'Images/transcription1.png' %}" alt="transcription"></span>
+                                    <p>Transcription</p>
+                                </li>
+                            </div>
+                            <div>
+                                <li class="flex">
+                                    <span class="bullet"><img loading="lazy" loading="lazy" src="{% static 'Images/data-analysis1.png' %}" alt="data-analysis"></span>
+                                    <p>Data Analytics</p>
+                                </li>
+                                <li class="flex">
+                                    <span class="bullet"><img loading="lazy"  loading="lazy" src="{% static 'Images/panel-service1.png' %}" alt="panel-service"></span>
+                                    <p>Panel Service</p>
+                                </li>
+                                <!-- <li class="flex">
+                                    <span class="bullet"><img loading="lazy"  loading="lazy" src="{% static 'Images/surveys.png' %}" alt="surveys-creation"></span>
+                                    <p>Survey Creation</p>
+                                </li> -->
+                            </div>
+                        </ol>
+                    </div>
+                    <a href="{% url 'crm-services' %}" class="btn">SERVICES <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Members -->
+<section class="team-member">
+    <div class="container">
+        <div class="text-box">
+            <div class="text-box text-center">
+                <h1>Meet Our Team</h1>
+                <hr>
+            </div>
+            <div class="grid" id="member-slider">
+                {% for member in member_set %}
+                <div class="team-container">
+                    <a href="{{member.get_absolute_url}}"><img loading="lazy" src="{{member.profile_img.url}}"></a>
+                    <div class="member-overlay">
+                    </div>
+                    <div class="member-desc">
+                        <a href="{{member.get_absolute_url}}">{{member.title}}</a>
+                        <p>{{member.designation}}</p>
+                        <div class="social-icons flex text-center">
+                            {% if member.twitter %}
+                            <a href="{{member.twitter}}">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                            {% endif %} {% if member.linkedin %}
+                            <a href="{{member.linkedin}}">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                            {% endif %} {% if member.facebook %}
+                            <a href="{{member.facebook}}">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Case Study -->
+<section>
+    <div class="container">
+        <div class="text-box text-center">
+            <h1>Our Works</h1>
+            <hr>
+        </div>
+        <div id="case-study-slider" style="max-width: 1000px; margin: 0 auto;">
+            {% for case_study in recent_case_study %}
+            <div class="flex justify-between" style="margin-top: 50px;">
+                <div class="image-container" style="background-image: url({{case_study.img.url}});"></div>
+                <div class="work-details">
+                    <p><b>{{case_study.service}}</b></p>
+                    <p class="small">{{case_study.title}}</p>
+                    <p>{{case_study.summary}}</p>
+                    <div class="profile-container flex">
+                        <div class="profile-image">
+                            <img loading="lazy" loading="lazy" src="{{case_study.client_img.url}}">
+                        </div>
+                        <p>{{case_study.client}}</p>
+                    </div>
+                    <a href="{{case_study.get_absolute_url}}" class="btn">VIEW CASE STUDY <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial -->
+<section class="text-center testimonial">
+    <div>
+        <p class="big">Kind Words From Our Clients</p>
+    </div>
+    <div id="testimonial-slider" class="testimonial-container">
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">CRM has helped us with services like report writing and field work . Their team is organized , efficient, and has great attention to detail.They save us hassle and stress, so I can focus more energy into putting on a great show for our clients.
+            </p>
+            <p class="small">Dejure Fitness</p>
+            <p>Report Writing</p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/dejure-fitness.png' %}" alt="Dejure Fitness">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">Concept Research Media has been great , they accommodated our needs and budget , while also doing a great job . With the help of CRM’s moderation services our productivity has increased and our clients are happier.</p>
+            <p class="small">First Partners</p>
+            <p>Moderation</p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/first-partners.png' %}" alt="First Partners">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">The comprehensive Business reports created by Concept Research Media have aided us immensely to gain crucial analysis and business recommendations for IRC Engineering.</p>
+            <p class="small">IRC Engineering</p>
+            <p>Report Writing</p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/irc.jpg' %}" alt="IRC">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">We currently serve more than 50+ business locations and 100+ customers while improving local search visibility on a wide range of platforms. All this has not been possible without Concept Research Media listing services.</p>
+            <p class="small">Square Yards</p>
+            <p>Listings</p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/square-yards.png' %}" alt="Square Yards">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">With time, frauds in credit cards have risen. Thanks to the presence of Concept Research Media and their effective measures that have provided essential data that helped us serve our customers better.</p>
+            <p class="small">WTW</p>
+            <p>Credit Card Data Mining</p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/wtw.png' %}" alt="WTW">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">In a pool of unqualified talent you will know that your options are limited when it comes to choosing the right and best fit for the job. Thanks to Concept Research Media for making the requirement process seamless.</p>
+            <p class="small">Zentro global</p>
+            <p>Recruitment of store owners</p>
+            <div class="logo-container">
+                <img loading="lazy" style="border-radius: 50%;" src="{% static 'Images/zentro.jpg' %}" alt="Zentro Global">
+            </div>
+        </div>
+</section>
+
+<!-- Recent Blog Post -->
+<section class="text-center">
+    <div class="text-box">
+        <h1>Our Recent Blogs</h1>
+        <hr>
+    </div>
+    <div class="blog-row">
+        {% for post in recent_blog_post %}
+        <div class="blog-column">
+            <img loading="lazy" loading="lazy" src="{{post.img.url}}" alt="blog-image">
+            <div class="overlay">
+                <div class="details">
+                    <p class="title">{{post.title}}</p>
+                    <span class="category">{{post.category}}</span>
+                    <a href="#" class="read-now">Read Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<script src="{% static 'JS/slick.min.js' %}"></script>
+<!-- Slider JS -->
+{% endblock content %}

@@ -1,0 +1,93 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>Case Studies by Concept Research Media</title>
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/article.css' %}">
+<style>
+    header {
+        background-image: var(--overlay), url(/static/Images/case-study1.jpg);
+    }
+    
+    .desc {
+        margin-top: -50%;
+        margin-right: 0;
+        margin-left: auto;
+    }
+</style>
+{% endblock head %}
+
+<!-- Header -->
+{% block header_content %}
+<div class="content">
+    <h1>Case studies by</h1>
+    <h1>Concept Reseach Media</h1>
+    <p>Read our case studies and reports, with expert perspectives, proprietary data, and thought-provoking insights.</p>
+    <a href="#" class="btn">GET IN TOUCH <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+{% endblock header_content %} {% block content %}
+<!-- All Case Study -->
+<section class="case-study">
+    <div class="container">
+        <div class="case-box">
+            {% for case_study in object_list %}
+            <div class="flex flex-column justify-between">
+                <div class="case-img">
+                    <img src="{{case_study.client_img.url}}">
+                </div>
+                <p>{{case_study.client}}</p>
+                <a href="{{case_study.get_absolute_url}}" class="btn">View case Study</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- <section class="case-study">
+    <div>
+        {% for case_study in object_list %}
+        <div class="flex cases">
+            <div class="col">
+                <div class="image-box">
+                    <a href="{{case_study.get_absolute_url}}"><img loading="lazy" src="{{case_study.img.url}}" alt="case-study"></a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="desc">
+                    <div>
+                        <p class="meta">
+                            <span>
+                            <a>{{case_study.service}}</a> 
+                        </span>
+                            <span>
+                        {{case_study.created_on|date:"d M Y"}}
+                        </span>
+                        </p>
+                    </div>
+
+                    <a href="{{case_study.get_absolute_url}}">
+                        <p class="small">{{case_study.title}}</p>
+                    </a>
+                    <p>{{case_study.summary}} </p>
+                    <div class="profile-container flex">
+                        <div class="profile-image">
+                            <img loading="lazy" src="{{case_study.client_img.url}}">
+                        </div>
+                        <div>
+                            <p><b>{{case_study.client}}</b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+-->
+    <div class="pagination flex flex-column justify-center">
+        <div>
+            {% if page_obj.has_previous %}
+            <a href="?page={{page_obj.prev_page_number}}" class="previous"><span>&#8592;</span> Previous Page</a> {% endif %} {% if page_obj.has_next %}
+            <a href="?page={{page_obj.next_page_number}}" class="next">Next Page <span>&#8594;</span></a> {% endif %}
+        </div>
+        <div class="pagination-toggler big-screen-only">
+            <p>Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</p>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

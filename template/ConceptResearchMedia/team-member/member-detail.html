@@ -1,0 +1,45 @@
+{% extends 'ConceptResearchMedia/base-no-header.html' %} {% load static %} {% block head %}
+<title>{{member.title}}</title>
+<meta property="og:title" content="{{member.title}}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="http://127.0.0.1:8000{{member.profile_img.url}}">
+<meta property="og:description" content="{{member.designation}}">
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/about.css' %}"> {% endblock head %} {% block content %}
+<section class="member-detail">
+    <div class="container">
+        <a href="{% url 'crm-about' %}">Back to About</a>
+        <div class="flex member-container">
+            <div class="member-img">
+                <img loading="lazy" src="{{member.profile_img.url}}" alt="{{member.title}}">
+            </div>
+            <div class="member-content">
+                <div class="text-box">
+                    <div class="member-bio">
+                        <p class="big">{{member.title}}</p>
+                        <p class="small">{{member.designation}}</p>
+                        <p>{{member.bio |safe}}</p>
+                    </div>
+                    <div class="follow">
+                        <p style="font-size: 20px;">Follow On</p>
+                        <div class="social-icons flex justify-between text-center">
+                            {% if member.twitter %}
+                            <a href="{{member.twitter}}">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                            {% endif %} {% if member.linkedin %}
+                            <a href="{{member.linkedin}}">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                            {% endif %} {% if member.facebook %}
+                            <a href="{{member.facebook}}">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% load static %} {% load range %} {% block head %}
+<title>Read the blogs by Concept Research Media</title>
+<link rel="stylesheet" href="{% static 'CSS/article.css' %}"> {% endblock head %} {% block content %}
+
+<!-- Header -->
+<header class="flex justify-center" style="background-image: var(--overlay), url(/static/Images/blog.jpg);">
+    <div class="content-box">
+        <div class="content">
+            <h1>All Blogs Of Category</h1>
+            <h1>{{category_posts.0.category}}</h1>
+            <p>Read our latest articles and reports, with expert perspectives, proprietary data, and thought-provoking insights.</p>
+            <a href="{% url 'blog' %}" class="btn">ALL BLOGS <ion-icon name="arrow-forward-outline"></ion-icon></a>
+        </div>
+    </div>
+    <div class="social-icons flex justify-center">
+        <a href="https://twitter.com/Conceptresearc1">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a href="https://www.facebook.com/conceptresearchmedia/">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="https://www.instagram.com/conceptresearchmedia/">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="https://www.linkedin.com/in/concept-research-media-121941229">
+            <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+    </div>
+</header>
+
+<!-- Blog Posts -->
+<section>
+    <div class="article">
+        <div class="articles-container">
+            {% for post in category_posts %}
+            <div class="all blog {{post.category}} article-entry">
+                <div class="article-image">
+                    <a href="{{post.get_absolute_url}}"><img loading="lazy" src="{{post.img.url}}"></a>
+                </div>
+                <div class="desc">
+                    <p class="meta">
+                        <span class="cat">
+                                <a href="{% url 'category' post.category %}">{{post.category}}</a> 
+                            </span>
+                        <span class="date">
+                            {{post.created_on | date:"d M Y"}}
+                            </span>
+                    </p>
+                    <a href="{{post.get_absolute_url}}">
+                        <p class="small">{{post.title}}</p>
+                    </a>
+                    <p>{{post.snippet}} </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

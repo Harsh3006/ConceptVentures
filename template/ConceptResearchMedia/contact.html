@@ -1,0 +1,87 @@
+{% extends 'ConceptResearchMedia/base.html' %}
+{% load static %}
+{% block head %}
+<title>Contact Concept Research Media</title>
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/contact.css' %}">
+<style>
+    header {
+        background-image: var(--overlay), url(/static/Images/contact.jpg);
+    }
+</style>
+{% endblock head %}
+
+<!-- Header -->
+{% block header_content %}
+<div class="content">
+    <h1>Contact</h1>
+    <h1>Concept Reseach Media</h1>
+    <p>To get in touch, please use one of the options below. We'd love to hear from you.</p>
+    <a href="{% url 'crm-about' %}" class="btn">ABOUT US <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+{% endblock header_content %}
+{% block content %}
+<!-- Contact Info -->
+<section class="contact">
+    <div class="container">
+        {% if name %}
+        <div class="text-box text-center">
+            <p class="small">Thanks {{name}}</p>
+            <p>We received your mail and will respond shortly</p>
+        </div>
+        {% endif %}
+        <div class="flex">
+            <div class="col">
+                <div class="contact-info flex">
+                    <div class="flex">
+                        <span><ion-icon name="call-outline"></ion-icon></span>
+                        <div>
+                            <span>Phone No.</span>
+                            <span>+91 9667763563</span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="mail-open-outline"></ion-icon></span>
+                        <div>
+                            <span>E-mail</span>
+                            <span>smita@conceptventures.in</span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="location-outline"></ion-icon></span>
+                        <div>
+                            <span>Address</span>
+                            <span>S-202, 2nd Floor, Best Arcade, Plot No.- 3, Pocket - 6, <br> Sector - 12, Dwarka, New Delhi, 110075</span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="time-outline"></ion-icon></span>
+                        <div>
+                            <span>Opening Hours</span>
+                            <span>9:00 AM to 7:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="contact-form">
+                    <form action="contact" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="name" class="form-control" placeholder="Name">
+                        <div>
+                            <input type="email" name="email" class="form-control" placeholder="E-mail">
+                            <input type="text" name="phone-no" class="form-control" placeholder="Phone">
+                        </div>
+                        <input type="text" name="subject" class="form-control" placeholder="Subject">
+                        <textarea rows="5" name="message" placeholder="Message" class="form-control"></textarea>
+                        <input type="submit" class="send-btn" value="send message">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3085.1160605556993!2d77.04111263428433!3d28.594885493108293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ac561555555%3A0xca35175ccefac24f!2sConcept%20Ventures!5e0!3m2!1sen!2sin!4v1644589975416!5m2!1sen!2sin"
+            width="100%" height="450" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+    </div>
+</section>
+{% endblock content %}

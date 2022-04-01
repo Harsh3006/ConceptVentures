@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Email</title>
+    <link rel="shortcut icon" href="{% static 'Images/crm-logo.svg' %}" type="image/x-icon">
+    <style>
+        body {
+            padding: 50px;
+            background-color: #003a4f;
+            font-family: sans-serif;
+            color: white;
+        }
+        
+        div.content {
+            max-width: 50%;
+            margin-left: 10%;
+        }
+        
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        a {
+            color: white;
+        }
+        
+        @media (max-width: 992px) {
+            div.content {
+                max-width: 100%;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <a href="{% url 'crm-index' %}"><img src="{% static 'Images/crm-logo.svg' %}" alt="logo" width="150px"></a>
+        {% if status == 'pre' %}
+        <p class="small">Great Job!</p>
+        <p>You have successfully created an account</p>
+        <p>Now, just to make sure we got your email address <b>{{email}}</b> correct, check your email inbox for a message from <b>te719654@gmail.com</b> and click on the verification link.</p>
+        {% elif status == 'post'%}
+        <p>You will shortly receive an email with the verification link on your email address <b>{{email}}</b>, from <b>te719654@gmail.com</b> and click on the verification link.</p>
+        {% endif %}
+        <p>If you don't find our email, check your spam/junk folder.</p>
+        <p>The verification link will expire in 24 hours so verify now!</p>
+        <a href="{% url 'send-verification-email' %}">
+            <p>Resend Verification Email</p>
+        </a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+{% extends 'ConceptResearchMedia/account/base.html' %} {% load static %} {% block content %}
+<p class="small">Basic Information</p>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="readonly">
+        <label for="fname">First Name</label>
+        <input class="input-field" type="text" id="fname" value="{{user.first_name}}" readonly>
+    </div>
+    <div class="readonly">
+        <label for="lname">Last Name</label>
+        <input class="input-field" type="text" id="lname" value="{{user.last_name}}" readonly>
+    </div>
+    <div class="readonly">
+        <label for="email">Email</label>
+        <input class="input-field" type="text" id="email" value="{{user.email}}" readonly>
+    </div>
+    {{form.as_p}}
+    <input type="submit" value="Submit">
+</form>
+{% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>Data Analytics at CRM</title>
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/service.css' %}">
+<style>
+    header {
+        background-image: var(--overlay), url(/static/Images/data-analytics.jpg);
+    }
+</style>{% endblock head %} {% block header_content %}
+<div class="content">
+    <h1>Data Analytics at CRM</h1>
+    <p>Unleash the power of your data , generate transformative insights with our help , optimize processes , and enhance your ROI with CRM’s data analytics team.</p>
+    <a href="{% url 'crm-services' %}" class="btn">ALL SERVICES <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+{% endblock header_content %} {% block content %}
+<div class="sub-services">
+    <section class="service-content a no-margin">
+        <div class="service-data">
+            <h1>Data Analytics</h1>
+            <p>In CRM company, Data Analytics is all about getting a bundle of raw loaded data simplified in all parameters to classify data redundancy, search in data for accuracy or required once and create insights out of the data. Here we give you complete
+                hands-on experience in analytical research with structured and unstructured data, bring proof in quality, run progress to resolve complexity in data and a lot more. It is created with a business process building criteria with which we
+                provide data that overcomes effective decision making over the past trends and research through the data. You get access to the true ownership of premium content that thrives your business processes. It unleashes boundaries in the required
+                niche with data collection, processing and presentation of the right set of content.</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo mollitia voluptatem saepe vel enim, aut eveniet aliquam praesentium temporibus sequi ullam consequatur, reprehenderit earum officiis harum provident vitae nemo necessitatibus.</p>
+        </div>
+    </section>
+</div>
+
+<div class="articles">
+    <div class="article-heading">
+        <h5>Articles</h5>
+        <h6>Related Blogs</h6>
+    </div>
+
+    <div class="cards pad">
+        <div class="card-container">
+            <div class="img-holder">
+            </div>
+            <div class="card-text">
+                <h4>Beauty of nature</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam placeat aliquam aut ab similique eveniet sit architecto asperiores esse id!</p>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="img-holder">
+            </div>
+            <div class="card-text">
+                <h4>Beauty of nature</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam placeat aliquam aut ab similique eveniet sit architecto asperiores esse id!</p>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="img-holder">
+            </div>
+            <div class="card-text">
+                <h4>Beauty of nature</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam placeat aliquam aut ab similique eveniet sit architecto asperiores esse id!</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

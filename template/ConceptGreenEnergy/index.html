@@ -1,0 +1,343 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Energy| Electricity from 100% Renewable Sources|Delhi</title>
+    <link rel="shortcut icon" href="{% static 'Images/CV-favicon.png' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet"> {% block head %} {% endblock head %}
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/ConceptVenture/home.css' %}">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        #services {
+            background-image: url(/static/Images/water.jpg);
+            background-position: center;
+            background-size: cover;
+            color: white;
+        }
+        
+        #services .big {
+            color: #056905;
+        }
+        
+        #clients {
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-image: url(/static/Images/clients.jpg);
+        }
+        
+        #clients .big {
+            color: white;
+        }
+        
+        .client-logo {
+            height: 100px;
+            overflow: hidden;
+            background: white;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        
+        .client-logo img {
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top -->
+    <div id="top"></div>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <header style="background-image: var(--overlay), url(/static/Images/green-energy.jpg);">
+        <div class="container">
+            <nav id="navbar" class="flex justify-between">
+                <a href="{% url 'cge-index' %}" class="a-logo">Concept Green Energy</a>
+                <ul id="nav-links">
+                    <li><a href="{% url 'cge-index' %}">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clients">Our Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <div class="mode">
+                        <ion-icon id="sun" class="active" name="sunny-outline" title="Light mode"></ion-icon>
+                        <ion-icon id="moon" name="moon-outline" title="Dark mode"></ion-icon>
+                    </div>
+                </ul>
+                <div class="menu" id="menu">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </div>
+            </nav>
+            <div class="content-box flex">
+                <div>
+                    <h1>Concept Green Energy</h1>
+                    <p>The company has demonstrated the highest quality of engineering and consultancy capabilities and is regarded as one of the leading green solution provider of India. With a pan-India presence, the company has taken on the conceptualizing
+                        and commissioning of various projects.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar flex justify-between flex-column">
+            <a href="{% url 'home' %}"><img src="{% static 'Images/cv-circle.svg' %}" alt="Concept Ventures" width="30px"></a>
+            <div class="flex flex-column social-icons">
+                <a href="#">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section id="about">
+        <div class="container">
+            <div class="flex align-stretch">
+                <div class="col-70">
+                    <div class="text-box">
+                        <h1 class="big">About Us</h1>
+                        <p>Concept Green Energy pvt ltd, is a registered consultant organisation , it has worked on several projects of small hydro power project.Concept Green Energy pvt ltd is a team of Consultants, Engineers, & Surveyors having wide range
+                            of expertise in commercial aspects, operational management of small Hydro Power projects. Site identification, allotment of projects, preparation of detailed project reports, pre-feasibility reports, detailed survey study of
+                            site, engineering and construction of projects,cost estimation & financial evaluation ,Tendering and Bid evaluation ,project planning and management & others. Keeping pace with rapid changes in technology, CGE is constantly
+                            upgrading its level of expertise by applying technology to provide the best technical services to their clients.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-30">
+                    <div class="image" style="background-image: url(/static/Images/cge.jpg);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <div class="container">
+            <div class="text-box text-center">
+                <h1 class="big">Our Services</h1>
+            </div>
+            <div class="grid4">
+                <div class="grid-item-box flex">
+                    <div class="img">
+                        <img src="{% static 'Images/feasibility-report.jpg' %}">
+                    </div>
+                    <p class="service-name">Feasibility Report</p>
+                    <p>A feasibility is an assessment of the practicality of a proposed project or system. A feasibility study aims to objectively and rationally uncover the strengths and weaknesses.</p>
+                </div>
+                <div class="grid-item-box flex">
+                    <div class="img">
+                        <img src="{% static 'Images/Hydro power Engineering.jpg' %}">
+                    </div>
+                    <p class="service-name">Hydro power Engineering</p>
+                    <p>Hydropower is now used principally for hydroelectric power generation, and is also applied as one half of an energy storage system pumped-storage hydroelectricity.</p>
+                </div>
+                <div class="grid-item-box flex">
+                    <div class="img">
+                        <img src="{% static 'Images/Site Investigations.jpg' %}">
+                    </div>
+                    <p class="service-name">Site Investigations</p>
+                    <p>A investigator detective, or inquiry agent, is a person hired by individuals to undertake investigatory law services work for attorneys in civil and criminal cases.</p>
+                </div>
+                <div class="grid-item-box flex">
+                    <div class="img">
+                        <img src="{% static 'Images/Cost Estimates.jpg' %}">
+                    </div>
+                    <p class="service-name">Cost Estimates</p>
+                    <p>A cost estimate is the approximation of the cost of a program, project, or operation. The cost estimate is the product single total value and may have identifiable component values.</p>
+                </div>
+                <div class="grid-item-box flex">
+                    <div class="img">
+                        <img src="{% static 'Images/Tender Evaluation.jpg' %}">
+                    </div>
+                    <p class="service-name">Tender Evaluation</p>
+                    <p>Tender evaluation A tender is a submission made by a prospective supplier in response to an invitation to tender. It makes an offer for the supply of goods or services.</p>
+                </div>
+                <div class="grid-item-box flex">
+                    <div class="img">
+                        <img src="{% static 'Images/Project Planning.jpeg' %}">
+                    </div>
+                    <p class="service-name">Project Planning</p>
+                    <p>Project planning is part of project management, which relates to the use of schedules such as Gantt charts subsequently report progress within the project environment.</p>
+                </div>
+                <div class="grid-item-box flex">
+                    <div class="img">
+                        <img src="{% static 'Images/On Site Inspection.jpg' %}">
+                    </div>
+                    <p class="service-name">On Site Inspection</p>
+                    <p>A building inspection is an inspection performed by a building inspector, a person who is employed by either a city, township is usually certified in one or more disciplines qualifying.</p>
+                </div>
+                <div class="grid-item-box flex">
+                    <div class="img">
+                        <img src="{% static 'Images/DPR.webp' %}">
+                    </div>
+                    <p class="service-name">DPR</p>
+                    <p>DPR Construction is a commercial general contractor and construction management firm based in Redwood City, California. The privately-held, employee-owned company.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="clients" class="no-margin">
+        <div class="container">
+            <div class="text-box text-center">
+                <h1 class="big">Our Clients</h1>
+            </div>
+            <div class="grid4">
+                <div class="client-logo">
+                    <img src="{% static 'Images/lanco.png' %}">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'Images/velcan.png' %}">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'Images/wapcos.png' %}">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'Images/spectra-green.png' %}">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'Images/supereco.png' %}">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'Images/sew.png' %}">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'Images/orange.png' %}">
+                </div>
+                <div class="client-logo">
+                    <img src="{% static 'Images/indiabulls.png' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3085.1160605556993!2d77.04111263428433!3d28.594885493108293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ac561555555%3A0xca35175ccefac24f!2sConcept%20Ventures!5e0!3m2!1sen!2sin!4v1644589975416!5m2!1sen!2sin"
+                width="100%" height="100%" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <div class="contact-box flex align-stretch">
+            <div class="contact-us">
+                <p class="small">Contact Us</p>
+                <div class="contact-info flex">
+                    <div class="flex">
+                        <span><ion-icon name="call-outline"></ion-icon></span>
+                        <span>+91 9958264788</span>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="mail-open-outline"></ion-icon></span>
+                        <span>info@concetventures.in</span>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="location-outline"></ion-icon></span>
+                        <span>S-202, 2nd Floor, Best Arcade, Plot No.- 3, Pocket - 6, Sector - 12, Dwarka, New Delhi, 110075</span>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="time-outline"></ion-icon></span>
+                        <span>9:00 AM to 7:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="get-in-touch">
+                <p class="small">Get in Touch</p>
+                <p>Feel free to contact with us</p>
+                <form action="{% url 'home' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Your name" required>
+                    <input type="text" name="email" id="email" class="form-control" placeholder="Email here" required>
+                    <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required>
+                    <textarea name="message" rows="1" class="form-control" placeholder="Type your message" required></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="flex footer-flex">
+                <div class="footer-col-30">
+                    <a href="{% url 'cge-index' %}" class="a-logo">Concept Green Energy</a>
+                    <p>Concept Venture is a parasol organization that holds other firms and has numerous projects running successfully under its wings.</p>
+                </div>
+                <div class="footer-col-20">
+                    <p class="tab">Explore</p>
+                    <ul>
+                        <li>
+                            <a href="{% url 'cge-index' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col-20">
+                    <p class="tab">Regd. Office</p>
+                    <p style="width: 80%;">S-202 ,2nd Floor,Best Arcade,Plot No.- 3, Pocket - 6,Sector - 12, Dwarka,New Delhi, 110075</p>
+                </div>
+                <div class="footer-col-30">
+                    <p class="tab">Corporate Office</p>
+                    <p style="width: 80%;">816-2nd Floor, Udyog Vihar, Phase-5, Gurgaon, Haryana-122016 , Phone:+91-124-4145847</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2018 | All rights reserved </p>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div id="cookie">
+        <div class="consent">
+            <p>By clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.</p>
+            <div class="buttons flex justify-center">
+                <button id="cookie-btn" class="item">Accept All Cookies</button>
+                <a href="{% url 'privacy-policy' %}#cookie-policy">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Whatsapp click to chat -->
+    <div id="whatsapp">
+        <a href=" https://wa.me/918578846111?text=I%20%20have%20a%20querry%20can%20you%20please%20help?" target="_blank">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+    </div>
+
+    <!-- Back to top button -->
+    <div id="back-to-top" class="flex justify-center" title="Back to top">
+        <a href="#top">
+            <ion-icon name="arrow-up-outline"></ion-icon>
+        </a>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'JS/common.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../Images/contact.jpg);
+}
+
+.contact .col {
+    padding: 15px;
+}
+
+.contact-info {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-info .flex {
+    flex-wrap: nowrap;
+}
+
+.contact-info div {
+    margin: 10px 0;
+}
+
+.contact-info span {
+    display: block;
+}
+
+.contact-info span ion-icon {
+    font-size: 30px;
+    margin-right: 20px;
+    color: var(--blue);
+}
+
+.contact-info div span:nth-child(2) {
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding-top: 0.4rem;
+}
+
+.form-control {
+    width: 100%;
+    border: 1.5px solid #c7c7c7;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin: 0.6rem 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    outline: 0;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 6px -3px rgba(48, 48, 48, 1);
+}
+
+.contact-form form div {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0.6rem;
+}
+
+.send-btn {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--blue);
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.send-btn:hover {
+    opacity: 0.8;
+}

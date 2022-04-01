@@ -1,0 +1,70 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>Market Research at CRM</title>
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/service.css' %}">
+<style>
+    header {
+        background-image: var(--overlay), url(/static/Images/market-research.jpg);
+    }
+</style>
+{% endblock head %}
+
+<!-- Header -->
+{% block header_content %}
+<div class="content">
+    <h1>Market Research at CRM</h1>
+    <p>Whether you need to evaluate entry into a market, quickly test a new idea or optimize you messaging, our experienced team of quantitative researchers can help you reach the right groups and execute surveys that meet your research objectives on your
+        timeline. </p>
+    <p>Concept Research Media keeps the pulse on the latest and greatest in the industry so you don't have to. We don't just talk market research, we live it, we write about it, and we share it. Our fingers hurt because of it often.</p>
+    <a href="{% url 'crm-services' %}" class="btn">ALL SERVICES <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+{% endblock header_content %} {% block content %}
+<div class="sub-services">
+    <!-- Market Size and Forecast -->
+    <section class="service-content b no-margin">
+        <div class="service-data">
+            <h1>Market Size and Forecast</h1>
+            <p>Whether entering a new market, preparing for a product launch, knowing the size of your market is critical when forecasting revenue.</p>
+            <p>So, four steps are followed in the total-market forecast which is define the market, divide total industry demand into its main components, Forecast the drivers of demand in each segment and project how they are likely to change, and conduct
+                sensitivity analyses to understand the most critical assumptions and to gauge risks to the baseline forecast.</p>
+        </div>
+    </section>
+
+    <!-- Impact Assesment -->
+    <section class="service-content c no-margin">
+        <div class="service-data">
+            <h1>Impact Assesment</h1>
+            <p>An impact assessment is a process for identifying, predicting, and evaluating the environmental, health, social, and economic impacts of development proposals before allowing them to proceed.</p>
+            <p>There are four key types of impact assessments which include global assessments, policy impact assessments, strategic environmental assessments, and environmental impact assessments.</p>
+        </div>
+    </section>
+
+    <!-- Ad Evaluation -->
+    <section class="service-content d no-margin">
+        <div class="service-data">
+            <h1>Ad Evaluation</h1>
+            <p>The measurement of the success of a planned program of advertising in terms of sales, increased product awareness, wider distribution, or other program objectives.</p>
+            <p>It is generally opined that much of advertising expenditure is wasteful. Proper evaluation would help in finding out whether it is wasteful and if so, how much of it is so.</p>
+        </div>
+    </section>
+
+    <!-- Concept Test -->
+    <section class="service-content e no-margin">
+        <div class="service-data">
+            <h1>Concept Testing</h1>
+            <p>The process of getting an idea evaluated by your target audience before it becomes available to the public. It includes anything from product concepts to ad campaigns.</p>
+            <p>It is achieved by using an <b>online survey</b>. The survey needs to be designed to analyze how respondents feel about your concepts or ideas. The data collected using these surveys are then used to determine what customers prefer or reject
+                your idea.</p>
+        </div>
+    </section>
+
+    <!-- Recruitemnt -->
+    <section class="service-content f no-margin">
+        <div class="service-data">
+            <h1>Recruitemnt of B2B Respondents</h1>
+            <p>Typically popular audiences are categorized by two major segments B2B (business to business) or B2C (business to consumer). B2B and B2C market research are very different.</p>
+            <p>Each audience requires its specifications to encourage participation in market research studies. Particularly when it comes to recruiting B2B professionals, market researchers are challenged to think outside of the box.</p>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

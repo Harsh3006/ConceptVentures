@@ -1,0 +1,401 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top most group of companies|Concept ventures</title>
+    <link rel="shortcut icon" href="{% static 'Images/CV-favicon.png' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet"> {% block head %} {% endblock head %}
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/ConceptVenture/home.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/icofont.min.css' %}">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+    <!-- Top -->
+    <div id="top"></div>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <header>
+        <div class="container">
+            <nav id="navbar" class="flex justify-between">
+                <a href="{% url 'home' %}"><img id="cv-logo" class="logo" src="{% static 'Images/cv-logo-white.svg' %}" alt="Concept Ventures"></a>
+                <ul id="nav-links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#companies">Companies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <div class="mode">
+                        <ion-icon id="sun" class="active" name="sunny-outline" title="Light mode"></ion-icon>
+                        <ion-icon id="moon" name="moon-outline" title="Dark mode"></ion-icon>
+                    </div>
+                    <div class="small-screen-only">
+                        <div class="cv-logo"></div>
+                    </div>
+                </ul>
+                <div class="menu" id="menu">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </div>
+            </nav>
+            <div class="content-box flex">
+                <div id="content-slider">
+                    <div class="content slider-active">
+                        <h1>We research to create new knowledge.</h1>
+                        <span></span>
+                        <p>Researching with a purpose. We take research as a formalized curiosity that pokes and pry with a purpose</p>
+                    </div>
+                    <div class="content">
+                        <h1>A family of Learning.</h1>
+                        <span></span>
+                        <p>Making an educational community, with the highly qualified and professional team, that is ever ready to guide and help you in all stages.</p>
+                    </div>
+                    <div class="content">
+                        <h1>Serving technology simply.</h1>
+                        <span></span>
+                        <p>Making the innovation to create a difference. Foundation for our high performing business is expertise in consulting.</p>
+                    </div>
+                    <div class="content">
+                        <h1>Designing your presence.</h1>
+                        <span></span>
+                        <p>Creating the lifestyle you desire. We aim to help business drive meaningful transformations through design thinking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar flex justify-between flex-column">
+            <a href="{% url 'home' %}"><img src="{% static 'Images/cv-circle.svg' %}" alt="Concept Ventures" width="30px"></a>
+            <div class="flex flex-column social-icons">
+                <a href="#">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="#">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section id="about" class="margin">
+        <div class="container">
+            <div class="flex align-stretch">
+                <div class="col">
+                    <div class="text-box">
+                        <h1 class="big">Who we are</h1>
+                        <p>Serving as an umbrella organization we host numerous firms making an impact in the world of technology.</p>
+                        <p>Concept Ventures is an umbrella organization that houses <a href="{% url 'crm-index' %}">Concept Research Media</a> , <a href="{% url 'cge-index' %}">Concept Green Energy</a> , <a href="{% url 'infracon-index' %}">Concept Infracon</a>,
+                            focusing strongly on the infrastructure of heavy engineering Concept Ventures has a number of commended projects in its portfolio spreading across fields such as hydro power, thermal projects, bridges, dams and roads. The company
+                            also works in market research, creating innovations in qualitative and quantitative research and understanding market segments. Through Global Educates, the group also works in the education sector, helping students find the
+                            perfect universities for their needs and study abroad.
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="image" style="background-image: url(/static/Images/about.jpg);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="text-box text-center">
+                <h1 class="big">Our Business Area</h1>
+                <p>A group of companies, that have taken up the initiative to bring an effective difference in the industry of technology.</p>
+            </div>
+            <div class="grid4">
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="bulb-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Power</p>
+                    <p>We excels in transmission and distribution ranging from design & modification of infrastructures.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="train-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Railways</p>
+                    <p>We excels in railway consultancy providing a diverse range of sustainable solutions in managements.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="car-sport-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Transportation</p>
+                    <p>Transportation includes in the major part of the country's infrastructure enabling maximum mobilization.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="bonfire-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Urban and Regional Planning</p>
+                    <p>Our Urban and Regional Planning involves optimizing the use of lands and resources in the community.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="business-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Township and Sez</p>
+                    <p>Our firm belief lies in delivering the township that are truly sustainable, affordable and flexible to surrounding.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="bar-chart-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Industrial planning and design</p>
+                    <p>Striving to provide most cost-efficient layout design to ensure the smooth running of operations.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="water-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Water and sanitization</p>
+                    <p>We aim to provide benefits of having access to improved sanitization and clean water with our efforts.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="boat-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Ports and Marine</p>
+                    <p>Ports and marine experts in to help in connecting communities in a safe and efficient way.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Market Research</p>
+                    <p>Enlightening the community with the systematic and objective collection of analyzed data.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="git-compare-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">IOT</p>
+                    <p>Our firm provides expertise in areas of strategic importance thereby ensuring the secure technological future.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="megaphone-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Digital Marketing</p>
+                    <p>Our organization is new age digital marketing answering to all your needs on a single platform in a hassle free way.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="earth-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Marketing and Brand Building</p>
+                    <p>The main objective of our service is to enhance your business with the increase in the sale.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="school-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Education</p>
+                    <p>Diminishing cross-border restrictions and enhancing education standards worldwide & fulfilling educational needs.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="hardware-chip-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Information Technology</p>
+                    <p>Empowering the world of technology with the efficient advancements and excellent delivery.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="color-wand-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Architecture and Design</p>
+                    <p>We aim to deliver innovative designs with sustainable and green and green architecture concepts.</p>
+                </div>
+                <div class="flex flex-column text-center grid-item-box">
+                    <div class="service-icon">
+                        <ion-icon name="flower-outline"></ion-icon>
+                    </div>
+                    <p class="service-name">Interior Design</p>
+                    <p>We aim to deliver innovative designs with sustainable and green and green architecture concepts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="companies">
+        <div class="container">
+            <div class="text-box text-center">
+                <h1 class="big">Our Companies</h1>
+                <p>Our family of companies approaches a lot of industry area by extending dedicated services.</p>
+            </div>
+            <div class="grid3">
+                <div class='grid-item-box'>
+                    <div class="company flex flex-column text-center">
+                        <div class="icon">
+                            <i class="icofont-multimedia"></i>
+                        </div>
+                        <p class="company-name">
+                            Concept Research Media
+                        </p>
+                        <p>Concept Research media offer customized marketing and research</p>
+                        <a href="{% url 'crm-index' %}">Know More <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+                <div class='grid-item-box'>
+                    <div class="company flex flex-column text-center">
+                        <div class="icon">
+                            <i class="icofont-energy-solar"></i>
+                        </div>
+                        <p class="company-name">
+                            Concept Green Energy
+                        </p>
+                        <p>Concept Green Energy assists growth of renewable energy power plant.</p>
+                        <a href="{% url 'cge-index' %}">Know More <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+                <div class='grid-item-box'>
+                    <div class="company flex flex-column text-center">
+                        <div class="icon">
+                            <i class="icofont-vehicle-excavator"></i>
+                        </div>
+                        <p class="company-name">
+                            Concept Infracon
+                        </p>
+                        <p>Concept Infracon serves construction, power of infra projects and power plants.</p>
+                        <a href="{% url 'infracon-index' %}">Know More <ion-icon name="arrow-forward-outline"></ion-icon></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3085.1160605556993!2d77.04111263428433!3d28.594885493108293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ac561555555%3A0xca35175ccefac24f!2sConcept%20Ventures!5e0!3m2!1sen!2sin!4v1644589975416!5m2!1sen!2sin"
+                width="100%" height="100%" style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+        </div>
+        <div class="contact-box flex align-stretch">
+            <div class="contact-us">
+                <p class="small">Contact Us</p>
+                <div class="contact-info flex">
+                    <div class="flex">
+                        <span><ion-icon name="call-outline"></ion-icon></span>
+                        <span>+91 9958264788</span>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="mail-open-outline"></ion-icon></span>
+                        <span>info@concetventures.in</span>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="location-outline"></ion-icon></span>
+                        <span>S-202, 2nd Floor, Best Arcade, Plot No.- 3, Pocket - 6, Sector - 12, Dwarka, New Delhi, 110075</span>
+                    </div>
+                    <div class="flex">
+                        <span><ion-icon name="time-outline"></ion-icon></span>
+                        <span>9:00 AM to 7:00 PM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="get-in-touch">
+                <p class="small">Get in Touch</p>
+                <p>Feel free to contact with us</p>
+                <form action="{% url 'home' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Your name" required>
+                    <input type="text" name="email" id="email" class="form-control" placeholder="Email here" required>
+                    <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required>
+                    <textarea name="message" rows="1" class="form-control" placeholder="Type your message" required></textarea>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="flex footer-flex">
+                <div class="footer-col-30">
+                    <a href="{% url 'home' %}"><img src="{% static 'Images/cv-logo-white.svg' %}" alt="logo" class="logo"></a>
+                    <p>Concept Venture is a parasol organization that holds other firms and has numerous projects running successfully under its wings.</p>
+                </div>
+                <div class="footer-col-20">
+                    <p class="tab">Explore</p>
+                    <ul>
+                        <li>
+                            <a href="{% url 'home' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#services">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col-20">
+                    <p class="tab">Regd. Office</p>
+                    <p style="width: 80%;">S-202 ,2nd Floor,Best Arcade,Plot No.- 3, Pocket - 6,Sector - 12, Dwarka,New Delhi, 110075</p>
+                </div>
+                <div class="footer-col-30">
+                    <p class="tab">Corporate Office</p>
+                    <p style="width: 80%;">816-2nd Floor, Udyog Vihar, Phase-5, Gurgaon, Haryana-122016 , Phone:+91-124-4145847</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2018 | All rights reserved </p>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div id="cookie">
+        <div class="consent">
+            <p>By clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.</p>
+            <div class="buttons flex justify-center">
+                <button id="cookie-btn" class="item">Accept All Cookies</button>
+                <a href="{% url 'privacy-policy' %}#cookie-policy">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Whatsapp click to chat -->
+    <div id="whatsapp">
+        <a href=" https://wa.me/918578846111?text=I%20%20have%20a%20querry%20can%20you%20please%20help?" target="_blank">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+    </div>
+
+    <!-- Back to top button -->
+    <div id="back-to-top" class="flex justify-center" title="Back to top">
+        <a href="#top">
+            <ion-icon name="arrow-up-outline"></ion-icon>
+        </a>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="{% static 'JS/common.js' %}"></script>
+</body>
+
+</html>

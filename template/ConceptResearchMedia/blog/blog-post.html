@@ -1,0 +1,103 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>{{post.title}}</title>
+<meta property="og:title" content="{{post.title}}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="http://127.0.0.1:8000{{post.img.url}}">
+<meta property="og:description" content="{{post.snippet}}">
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/article.css' %}">
+<style>
+    header {
+        background-image: var(--overlay),
+        url({{post.img.url}});
+        height: calc(80vh - 100px);
+        margin-top: 100px;
+    }
+    
+    header .sidebar {
+        display: none !important;
+    }
+    
+    header .content-box {
+        height: calc(80vh - 130px);
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: var(--primary-color);
+        box-shadow: 0px 5px 21px -14px rgb(0 0 0 / 100%);
+    }
+    
+    nav ul li a {
+        color: var(--secondary-color);
+    }
+    
+    nav ul li a::after {
+        background-color: var(--secondary-color);
+    }
+    
+    nav .mode {
+        border: 2px solid var(--secondary-color);
+    }
+    
+    nav .mode ion-icon {
+        color: var(--secondary-color);
+    }
+    
+    nav .menu span {
+        background: var(--secondary-color);
+    }
+</style>
+{% endblock head %} {% block header_content %}
+<div class="content">
+    <a href="{% url 'category' post.category %}" class="category">{{post.category}}</a>
+    <h1>{{post.title}}</h1>
+    <p> {{post.created_on | date:"d M Y"}}</p>
+    <p>{{post.snippet}}</p>
+</div>
+</div>
+{% endblock header_content %} {% block content %}
+<div class="article-post-container">
+    <div class="article-content">
+        {{post.body|safe}}
+    </div>
+    <div id="social-share" class="flex">
+        <p>Share</p>
+        <a href="#" id="whatsapp-btn">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+        <a href="#" id="facebook-btn">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="#" id="linkedin-btn">
+            <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <a href="#" id="twitter-btn">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+    </div>
+</div>
+{% if related_blog_post %}
+<div class="articles">
+    <div class="pad">
+        <div class="article-heading">
+            <h5>Articles</h5>
+            <h6>Related Blogs</h6>
+        </div>
+        <div class="cards">
+            {% for blogs in related_blog_post %}
+            <div class="card-container">
+                <div class="img-holder" style="background-image: url({{blogs.img.url}});">
+                </div>
+                <div class="card-text">
+                    <p class="small">{{blogs.title}}</p>
+                    <p>{{blogs.snippet}}</p>
+                    <a href="{{ blogs.get_absolute_url }}" class="btn">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %} {% endblock content %}

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In to Concept Research Media</title>
+    <link rel="icon" href="{% static 'Images/favicon.png' %}" type="image" sizes="20x20">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/registration.css' %}">
+</head>
+
+<body>
+    {% for message in messages %}
+    <p id="message" class="{{message.tags}}">{{message}}</p>
+    {% endfor %}
+    <div class="flex">
+        <div class="registration-page">
+            <a href="{% url 'crm-index' %}"><img src="{% static 'Images/crm-logo.svg' %}" alt="logo" class="logo"></a>
+            <div class="registration-box">
+                <div class="form-box">
+                    <p class="small">Log in to your account</ps>
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="email" name="email" id="email" class="input-field" required>
+                                <label for="email">Email</label>
+                                <span class="bar"></span>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="password" name="password" id="password" class="input-field" required>
+                                <label for="password">Password</label>
+                                <ion-icon name="eye-off-outline" id='toggle-password' onclick="showPassword()"></ion-icon>
+                                <span class="bar"></span>
+                                <a href="{% url 'reset-password' %}">Forgot Password?</a>
+                            </div>
+                            <div class="bottom-text">
+                                <input type="submit" value="Log In">
+                            </div>
+                        </form>
+                </div>
+                <div class="btn-box">
+                    <p>New here?</p>
+                    <p class="small-text">Sign Up as: <a href="{% url 'signup' 'transcriber' %}">Transcriber</a>/<a href="{% url 'signup' 'freelancer' %}">Freelancer</a>/<a href="{% url 'signup' 'vendor' %}">Vendor</a>/<a href="{% url 'signup' 'panelist' %}">Panelist</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="big-screen-only">
+            <div class="image"></div>
+        </div>
+    </div>
+    <script src="{% static 'JS/password-validation.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

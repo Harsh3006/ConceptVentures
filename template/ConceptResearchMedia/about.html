@@ -1,0 +1,292 @@
+{% extends 'ConceptResearchMedia/base.html' %} {% load static %} {% block head %}
+<title>About Concept Research Media</title>
+<link rel="stylesheet" href="{% static 'CSS/slick.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/ConceptResearchMedia/about.css' %}"> {% endblock head %}
+<!-- Header -->
+{% block header_content %}
+<div class="content">
+    <h1>About</h1>
+    <h1>Concept Reseach Media</h1>
+    <p>
+        Concept Research Media specializes in providing state-of-art B2B & B2C market research, consulting and IT services. It offers market research which provides primary as well as secondary data collection services to clients worldwide. The team has cumulative
+        experience of 100+ years and in-depth knowledge about market research tools and techniques.
+    </p>
+    <a href="{% url 'contact' %}" class="btn">GET IN TOUCH <ion-icon name="arrow-forward-outline"></ion-icon></a>
+</div>
+{% endblock header_content %} {% block content %}
+<!-- Who we are -->
+<section>
+    <div class="container">
+        <div class="about">
+            <div class="col">
+                <div class="text-box">
+                    <h1 class="big">Who we are</h1>
+                    <p>
+                        In today’s aura of incessant competition and rapid change, the urge to gain valuable and reliable insights from every aspect is crucial to support your business. Concept Research Media unravels eminent industry- specific insights and solutions in the
+                        facet of B2B AND B2C market research, data analytics, panel service, industry insights, transcriptions and translations, aiming to provide actionable guidance to our clients. We scrutinize every minute aspect of your business and
+                        aid you to set wings of success. Concept Research Media leads as a prominent firm of its father company - Concept Ventures which is a fabled and well established umbrella organization hosting numerous eminent firms, making an impact
+                        in the world of technology and marketing since a decade now.
+                    </p>
+                    <p>
+                        We believe in your vision and dream and hence we never compromise to unbox the best research media solutions for you. Our team of experts, proficient in the amalgamation of both MBA and IT facets, dives into extensive research and in-depth analysis to
+                        fabricate custom solutions for all kinds of organizations.
+                    </p>
+                </div>
+            </div>
+            <div class="col image flex about-number">
+                <div class="flex flex-column justify-between text-center text-box">
+                    <div>
+                        <p class="big">
+                            10K+
+                        </p>
+                        <p>
+                            Achievements
+                        </p>
+                    </div>
+                    <div>
+                        <p class="big">
+                            21K+
+                        </p>
+                        <p>
+                            Projects completed
+                        </p>
+                    </div>
+                    <div>
+                        <p class="big">
+                            27
+                        </p>
+                        <p>
+                            Years of experience
+                        </p>
+                    </div>
+                    <div>
+                        <p class="big">
+                            30K+
+                        </p>
+                        <p>
+                            Happy Clients
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="col">
+                <div class="text-box">
+                    <p class="small">
+                        3 Bricks Of Values
+                    </p>
+                    <p>
+                        We build remarkable relationships with our clients based upon these 3 bricks of values that consequently bring out the most optimum solutions for your business’s triumph.
+                    </p>
+                    <ol>
+                        <li>
+                            <p>
+                                Transparency & Faith
+                            </p>
+                        </li>
+                        <p>
+                            Our team is well aware of the value of your trust and faith in us. Hence, we ensure to preserve your trust as a valuable asset by providing transparency throughout the deal by adhering to our commitments.
+                        </p>
+                        <li>
+                            <p>
+                                Exceeding Expectations
+                            </p>
+                        </li>
+                        <p>
+                            From profound market research to providing exemplary panel service, we excel at each corner of marketing and media facets. Hence, we take pledge to exude results that consistently exceed the expectations of our clients.
+                        </p>
+                        <li>
+                            <p>
+                                Integrity & Experience
+                            </p>
+                        </li>
+                        <p>
+                            Concept Research Media comprises an adroit team of leaders,from top notch MBA and IT institutes around the globe with profound experience from elevated firms like Kantar IMRB,Purple Audacity, etc. They amalgamate their proficient skills and cumulative
+                            experience in the field of over 100 plus years to provide integrated solutions for your business.
+                        </p>
+                    </ol>
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-box">
+                    <p class="small">
+                        Our expertise
+                    </p>
+                    <p>
+                        Find out more about our areas of expertise, and the solutions we offer...
+                    </p>
+                    <a href="{% url 'crm-services' %}">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- What we do -->
+<section>
+    <div class="container">
+        <div class="about">
+            <div class="col">
+                <div class="text-box">
+                    <h1 class="big">What we do</h1>
+                    <p>
+                        We connect with diverse clients who step in with unique demands and expectations. Our team at Concept Research Media skillfully identifies their needs and fabricates customized solutions right from enhancing their brand awareness, analyzing their business’s
+                        data for insights, designing world-class panels to creating informative reports for their firms. We utilize advanced techniques and keep hold of the latest trends to devise optimized results in B2B AND B2C market research, data
+                        analytics,panel service, industry reports, translation, transcription, annotation and proofreading.
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <video autoplay muted loop plays-inline id="video">
+                        <source src="{% static 'Videos/CRM.mp4' %}" type="video/mp4">
+                    </video>
+                <div id="video-btn" class="flex justify-center">
+                    <ion-icon name="play-outline" id="video-icon"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- All members -->
+<section>
+    <div class="container">
+        <div class="text-box">
+            <h1 class="big">Meet Our Team</h1>
+            <div class="grid">
+                {% for member in member_set %}
+                <div class="team-container">
+                    <a href="{{ member.get_absolute_url }}">
+                        <img loading="lazy" src="{{ member.profile_img.url }}">
+                    </a>
+                    <div class="member-overlay"></div>
+                    <div class="member-desc">
+                        <a href="{{ member.get_absolute_url }}">{{ member.title }}</a>
+                        <p>
+                            {{ member.designation }}
+                        </p>
+                        <div class="social-icons flex text-center">
+                            {% if member.twitter %}
+                            <a href="{{ member.twitter }}">
+                                <ion-icon name="logo-twitter"></ion-icon>
+                            </a>
+                            {% endif %} {% if member.linkedin %}
+                            <a href="{{ member.linkedin }}">
+                                <ion-icon name="logo-linkedin"></ion-icon>
+                            </a>
+                            {% endif %} {% if member.facebook %}
+                            <a href="{{ member.facebook }}">
+                                <ion-icon name="logo-facebook"></ion-icon>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonial -->
+<section class="text-center testimonial">
+    <div>
+        <p class="big">
+            Kind Words From Our Clients
+        </p>
+    </div>
+    <div id="testimonial-slider" class="testimonial-container">
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">
+                CRM has helped us with services like report writing and field work . Their team is organized , efficient, and has great attention to detail.They save us hassle and stress, so I can focus more energy into putting on a great show for our clients.
+            </p>
+            <p class="small">
+                CMR
+            </p>
+            <p>
+                Primary Research
+            </p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/.png' %}" alt="CMR">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">
+                When it comes to Translation and Transcription services, Concept Research Media always proves to be the best. Their Translation and Call Recording service were provided to us by varied language experts in the most optimum way. We would strongly recommend
+                their services!
+            </p>
+            <p class="small">
+                Mab Media
+            </p>
+            <p>
+                Translation and Call Recording
+            </p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/mab-media.png' %}" alt="Mab Media">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">
+                Auditing at Redquanta is a key function that provides necessary feedback on parameters such as store personnel behaviour, interaction and customer experience and compliance to pricing policies. And all of the information gained must be precise, Thanks
+                to Concept Research Media services for helping us fasten auditing and providing us with accurate information that facilitated our overall internal operations.
+            </p>
+            <p class="small">
+                Redquanta
+            </p>
+            <p>
+                Salon Mystry Audit
+            </p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/redquanta.png' %}" alt="Redquanta">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">
+                Concept Research Media and it’s a highly experienced team of professionals has profoundly helped IMRB in the facet of Recruitment, Moderation and Transcription. They have diligently worked on several projects with us and have always exceeded our expectations.
+                We’re looking forward to doing more projects with CRM!.
+            </p>
+            <p class="small">
+                Kantar IMRB
+            </p>
+            <p>
+                Recruitment, Moderation and Transcription
+            </p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/kantar-imrb.jpeg' %}" alt="Kantar IMRB">
+            </div>
+        </div>
+        <div class="testimonial-content flex flex-column">
+            <img loading="lazy" class="quote" src="{% static 'Images/quote.png' %}">
+            <p class="para">
+                We are highly pleased by the work that the team of Concept Research Media has put forth for Neilsen. Their team of experts has facilitated exceptional Project Management, accuarte Recruitment, proper Coordination and excellent Moderation for FGDs.
+            </p>
+            <p class="small">
+                Nielsen
+            </p>
+            <p>
+                Project Management, FGDs, Coordination
+            </p>
+            <div class="logo-container">
+                <img loading="lazy" src="{% static 'Images/neilsen.png' %}" alt="Neilsen">
+            </div>
+        </div>
+</section>
+<script src="{% static 'JS/slick.min.js' %}"></script>
+<script>
+    var video = document.getElementById('video');
+    var videoBtn = document.getElementById('video-btn');
+    var videoIcon = document.getElementById('video-icon');
+    videoBtn.onclick = function() {
+        if (video.paused) {
+            video.play();
+            videoIcon.setAttribute("name", "play-outline");
+            video.removeAttribute("muted")
+        } else {
+            video.pause();
+            videoIcon.setAttribute("name", "pause-outline");
+        }
+    }
+</script>
+{% endblock content %}

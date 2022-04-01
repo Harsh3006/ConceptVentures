@@ -1,0 +1,39 @@
+{% extends 'ConceptResearchMedia/account/base.html' %} {% load static %} {% block content %}
+<div class="profile-box">
+    <p class="small">Documents</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <ul class="errorlist">
+            <li>{{ form.non_field_errors }}</li>
+        </ul>
+        {% if user.country == 'India' %}
+        <ul class="errorlist">
+            <li>{{ form.aadhar_card_errors }}</li>
+        </ul>
+        <p>
+            <label for="{{ form.aadhar_card.id_for_label }}">Aadhar Card:</label> {{form.aadhar_card}}
+        </p>
+        <ul class="errorlist">
+            <li>{{ form.pan_card_errors }}</li>
+        </ul>
+        <p>
+            <label for="{{ form.pan_card.id_for_label }}">Pan Card:</label> {{form.pan_card}}
+        </p>
+        <ul class="errorlist">
+            <li>{{ form.passport_errors }}</li>
+        </ul>
+        <p>
+            <label for="{{ form.passport.id_for_label }}">Passport:</label> {{form.passport}}
+        </p>
+        {% else %}
+        <ul class="errorlist">
+            <li>{{ form.passport_errors }}</li>
+        </ul>
+        <p>
+            <label for="{{ form.passport.id_for_label }}">Passport:</label> {{form.passport}}
+        </p>
+        {% endif %}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock content %}

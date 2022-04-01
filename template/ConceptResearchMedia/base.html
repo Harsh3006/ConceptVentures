@@ -1,0 +1,242 @@
+{% load static %} {% load active_link_tags %} {% load meta %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head {% meta_namespaces %}>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% include "meta/meta.html" %}
+    <link rel="shortcut icon" href="{% static 'Images/favicon.png' %}" type="image/x-icon" width="20px">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/style.css' %}"> {% block head %} {% endblock head %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <script>
+        ! function(e, t, a) {
+            var c = e.head || e.getElementsByTagName("head")[0],
+                n = e.createElement("script");
+            n.async = !0, n.defer = !0, n.type = "text/javascript", n.src = t + "/static/js/chat_widget.js?config=" + JSON.stringify(a), c.appendChild(n)
+        }(document, "https://app.engati.com", {
+            bot_key: "654f6d89f7dc4196",
+            welcome_msg: true,
+            branding_key: "default",
+            server: "https://app.engati.com",
+            e: "p"
+        });
+    </script>
+</head>
+
+<body>
+    <!-- Top -->
+    <div id="top"></div>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <header>
+        <div class="container">
+            <nav id="navbar" class="flex justify-between">
+                <a href="{% url 'crm-index' %}"><img id="logo" class="logo" src="{% static 'Images/crm-logo.svg' %}" alt="Concept Research Media"></a>
+                <ul id="nav-links">
+                    <li><a href="{% url 'crm-index' %}" class="{% active_link 'crm-index' strict=True %}">Home</a></li>
+                    <li><a href="{% url 'crm-services' %}" class="{% active_link 'crm-services' %}">Services</a></li>
+                    <li><a href="{% url 'blog' %}" class="{% active_link 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'case-study' %}" class="{% active_link 'case-study' %}">Case Study</a></li>
+                    <li><a href="{% url 'crm-about' %}" class="{% active_link 'crm-about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}" class="{% active_link 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'work-with-us' %}" class="work-with-us">Work With Us</a></li>
+                    <div class="mode">
+                        <ion-icon id="sun" class="active" name="sunny-outline" title="Light mode"></ion-icon>
+                        <ion-icon id="moon" name="moon-outline" title="Dark mode"></ion-icon>
+                    </div>
+                </ul>
+                <div class="menu" id="menu">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </div>
+            </nav>
+            <div class="content-box flex">
+                {% block header_content %} {% endblock header_content %}
+            </div>
+        </div>
+        <div class="sidebar flex justify-between flex-column">
+            <a href="{% url 'home' %}"><img src="{% static 'Images/cv-circle.svg' %}" alt="Concept Ventures" width="30px"></a>
+            <div class="flex flex-column social-icons">
+                <a href="https://twitter.com/Conceptresearc1">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <a href="https://www.facebook.com/conceptresearchmedia/">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://www.instagram.com/conceptresearchmedia/">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://www.linkedin.com/in/concept-research-media-121941229">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    {% block content %} {% endblock content %}
+
+    <!-- Cookie Consent -->
+    <div id="cookie">
+        <div class="consent">
+            <p>By clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.</p>
+            <div class="buttons flex justify-center">
+                <button id="cookie-btn" class="item">Accept All Cookies</button>
+                <a href="{% url 'privacy-policy' %}#cookie-policy">Cookie Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <section class="newsletter" id="newsletter">
+        <div class="flex">
+            <div class="col">
+                <div>
+                    <h1>Want To Receive Our Latest Updates?</h1>
+                    <p>Subscribe to our Newsletter to receive latest update right there on your email.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+                    <form action="newsletter" method="post">
+                        {% csrf_token %}
+                        <div class="required">
+                            <input type="email" name="email" id="email" required>
+                            <label for="email">Your Email Address</label>
+                            <button type="submit" class="white">
+                            <ion-icon name="paper-plane-outline"></ion-icon>
+                        </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="flex footer-flex">
+                <div class="footer-col-30">
+                    <a href="#"><img src="{% static 'Images/crm-logo.svg' %}" alt="logo" class="logo"></a>
+                    <p>At CRM, we help brands to connect with their audience across markets through key insights. We solve your business problems by putting together the best suited strategies with data, technology and human intelligence.</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/conceptresearchmedia/">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                        <a href="https://www.instagram.com/conceptresearchmedia/">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                        <a href="https://www.linkedin.com/in/concept-research-media-121941229">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                        <a href="https://twitter.com/Conceptresearc1">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col-20">
+                    <p class="tab">Explore</p>
+                    <ul>
+                        <li>
+                            <a href="{% url 'crm-index' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'crm-services' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'blog' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'case-study' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Case Study
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col-20">
+                    <p class="tab">Quick Links</p>
+                    <ul>
+                        <li>
+                            <a href="{% url 'crm-about' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> About
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'work-with-us' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Work With Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'contact' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Contact Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'privacy-policy' %}">
+                                <ion-icon name="arrow-forward-outline"></ion-icon> Privacy Policy
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col-30">
+                    <p class="tab">Have a Question?</p>
+                    <div class="question">
+                        <div>
+                            <ion-icon name="location-outline"></ion-icon>
+                            <p style="width: 80%;">S-202 ,2nd Floor,Best Arcade,Plot No.- 3, Pocket - 6,Sector - 12, Dwarka,New Delhi, 110075</p>
+                        </div>
+                        <div>
+                            <ion-icon name="call-outline"></ion-icon>
+                            <p> +91 9667763563</p>
+                        </div>
+                        <div>
+                            <ion-icon name="mail-open-outline"></ion-icon>
+                            <p>smita@conceptventures.in</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2018 | All rights reserved </p>
+        </div>
+    </footer>
+
+    <!-- Whatsapp click to chat -->
+    <div id="whatsapp">
+        <a href=" https://wa.me/918578846111?text=I%20%20have%20a%20querry%20can%20you%20please%20help?" target="_blank">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+        </a>
+    </div>
+
+    <!-- Back to top button -->
+    <div id="back-to-top" class="flex justify-center" title="Back to top">
+        <a href="#top">
+            <ion-icon name="arrow-up-outline"></ion-icon>
+        </a>
+    </div>
+
+    <!-- Auto typing effect -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="{% static 'JS/common.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+h1 {
+    font-size: 30px;
+}
+
+.logo {
+    margin: 20px;
+}
+
+.flex {
+    align-items: stretch;
+}
+
+.big-screen-only {
+    width: 50%;
+    background-image: linear-gradient(to bottom, white 22%, #deeefb);
+}
+
+.image {
+    height: 100%;
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(/static/Images/registration.jpg);
+}
+
+.registration-page {
+    width: 50%;
+    min-height: 100vh;
+    background: #fff;
+    box-shadow: -4px 9px 46px rgb(0 135 128 / 20%);
+}
+
+.registration-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+form {
+    width: 70%;
+    padding-top: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-box h1 {
+    color: #121212;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-box p {
+    margin: 0;
+    margin-bottom: 20px;
+    letter-spacing: 0;
+}
+
+.large-text {
+    font-size: 18px;
+    color: #a0a0a0;
+}
+
+.input-group {
+    padding: 10px 0;
+    position: relative;
+}
+
+.input-field~label {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+select.input-field~label {
+    top: -15px;
+}
+
+input.input-field:focus~label,
+input.input-field:valid~label {
+    top: -15px;
+}
+
+input,
+select {
+    font-size: 16px;
+    width: 100%;
+    margin: 5px 0;
+    padding: 0 10px;
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #333;
+}
+
+select {
+    height: 40px;
+    border: 1px solid black;
+}
+
+.input-group a {
+    color: #006cc5;
+    font-size: 13px;
+    font-weight: bold !important;
+}
+
+#toggle-password {
+    font-size: 25px;
+    color: #666;
+    right: 10px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 5px;
+    position: absolute;
+    background: #666;
+    transition: 300ms ease all;
+    left: 0%;
+}
+
+input:focus+span::before {
+    width: 100%;
+}
+
+label,
+.small-text {
+    font-size: 13px;
+    color: rgb(153, 153, 153);
+}
+
+.input-field[type='date'] {
+    padding-left: 10px;
+}
+
+input[type='submit'] {
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    background: #006cc5;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+}
+
+.bottom-text {
+    text-align: center;
+    margin: auto 0;
+}
+
+.bottom-text a {
+    padding-top: 15px;
+    display: none;
+}
+
+.btn-box {
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.btn-box p {
+    margin: 0;
+}
+
+.registration-box a {
+    margin-left: 5px;
+    color: #006cc5;
+}
+
+#validation-box {
+    padding: 10px 15px;
+    background-color: white;
+    border: 1px solid #bebebe;
+    max-width: 276px;
+    color: rgb(102, 102, 102);
+    font-size: 14px;
+    top: 50px;
+    left: 20%;
+    position: absolute;
+    z-index: 100;
+    display: none;
+    transition: 0.2s;
+}
+
+#validation-box p {
+    margin: 0 !important;
+}
+
+.arrow::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -11px;
+    left: 46%;
+    background-color: white;
+    border-left: 1px solid #bebebe;
+    border-top: 1px solid #bebebe;
+    transform: rotate(45deg);
+}
+
+#password:valid~#validation-box {
+    display: none !important;
+}
+
+span.red {
+    color: #D0021b;
+}
+
+span.green {
+    color: #00cd82;
+}
+
+@media (max-width: 768px) {
+    .registration-page {
+        width: 100%;
+    }
+    form {
+        width: 60%;
+    }
+}
+
+@media (max-width: 567px) {
+    form {
+        width: 80%;
+    }
+    .small {
+        font-size: 25px !important;
+    }
+}
